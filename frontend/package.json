@@ -22,7 +22,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "deploy": "npm run build && scp -r ./build/* foxylab@51.250.73.7:/home/foxylab/react-mesto-api-full/frontend"
+    "deploy": "npm run build && scp -r ./build/* foxylab@51.250.73.7:/home/foxylab/react-mesto-api-full/frontend/build"
   },
   "eslintConfig": {
     "extends": [
