@@ -1,0 +1,16 @@
+.profile__name-block {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-align: baseline;
+  -ms-flex-align: baseline;
+  align-items: baseline;
+  max-width: 336px;
+}
+
+@media (max-width: 400px) {
+  .profile__name-block {
+    max-width: 282px;
+    justify-content: center;
+  }
+}

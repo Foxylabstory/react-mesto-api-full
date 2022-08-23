@@ -1,0 +1,5 @@
+.element__caption-group {
+  display: flex;
+  /*align-items: baseline;*/
+  margin: 23px 21px 31px 21px;
+}

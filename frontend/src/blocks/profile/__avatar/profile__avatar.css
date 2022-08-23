@@ -1,0 +1,30 @@
+.profile__avatar {
+  width: 120px;
+  height: 120px;
+  border: none;
+  border-radius: 50%;
+  background-image: url('../../../images/profile/spinner.gif');
+  background-color: #000;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  position: relative;
+}
+
+.profile__avatar:hover:after {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  background-image: url('../../../images/profile/penLarge.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  opacity: 0.8;
+  transition: opacity 0.4s ease;
+  border-radius: 50%;
+}

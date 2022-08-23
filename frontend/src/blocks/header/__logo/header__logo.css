@@ -1,0 +1,21 @@
+.header__logo {
+  width: 142px;
+  height: 33px;
+  /*background-image: url("../../../images/header/mesto-russia-logo.svg");
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;*/
+}
+
+@media (max-width: 922px) {
+  .header__logo {
+    margin-left: 27px;
+  }
+}
+
+@media (max-width: 325px) {
+  .header__logo {
+    width: 103.74px;
+    height: 24.4px;
+  }
+}
