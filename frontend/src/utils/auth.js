@@ -7,7 +7,6 @@ const isOk = (response) => {
 };
 
 export const register = (password, email) => {
-    console.log(`Регистрация: ${JSON.stringify({password, email})}`);
   return fetch(`${BASE_URL}/signup`, {
     method: 'POST',
     credentials: 'include',
@@ -20,7 +19,6 @@ export const register = (password, email) => {
 };
 
 export const authorization = (password, email) => {
-  console.log(`Авторизация:  ${JSON.stringify({password, email})}`);
   return fetch(`${BASE_URL}/signin`, {
     method: "POST",
     credentials: 'include',
@@ -32,8 +30,7 @@ export const authorization = (password, email) => {
   }).then(isOk);
 };
 
-export const deauthorization = (email) => {
-  console.log(`Деавторизация:  ${JSON.stringify({email})}`);
+export const deauthorization = () => {
   return fetch(`${BASE_URL}/signout`, {
     method: "GET",
     credentials: 'include',

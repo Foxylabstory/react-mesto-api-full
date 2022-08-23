@@ -75,7 +75,6 @@ const findUserById = (req, res, next) => {
 };
 
 const getUserInfo = (req, res, next) => {
-  console.log(req.user._id);
   User.findById(req.user._id)
     .orFail(() => {
       throw new NotFoundError('Запрашиваемые данные по указанному id не найдены');

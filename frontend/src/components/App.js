@@ -97,7 +97,6 @@ export default function App() {
   const tokenCheck = () => { // проверяk токен, сейчас придумать, как он должен проверять залогиненое состояние
     // const jwt = localStorage.getItem("jwt");
     userCheck(/* jwt */).then((response) => {
-      console.log(`Это ответ с сервера при проверке токена ${response.email}`)
       setUserEmail(response.email);
       setLoggedIn(true);
     }).then(() => navigate("/"))
@@ -129,7 +128,6 @@ export default function App() {
     authorization(password, email)
       .then((response) => {
         if (response.message === 'allowed') { //response.token убрали, нужно проверить что там приходит в ответе при логине
-          console.log(`Это ручная авторизация при которой мне возвращается ${response.message}`);
           updateUser();
           updateCards();
           setUserEmail(email);

@@ -6,9 +6,6 @@ const AuthorizationError = require('../errors/authorizationError');
 
 module.exports = (req, res, next) => {
   const token = req.cookies.jwt;
-  console.log(req.cookies.jwt);
-  /* const isVerified = jwtVerify(req.cookies.JWT);
-  console.log(isVerified); */
   let payload;
   try {
     payload = jwt.verify(token, SECRET_KEY);
