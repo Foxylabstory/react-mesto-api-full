@@ -86,7 +86,7 @@ class Api {
 
 
 const api = new Api({
-  baseUrl: "https://api.foxylab.nomoredomains.sbs", // https://mesto.nomoreparties.co/v1/cohort-41/
+  baseUrl: "https://api.foxylab.nomoredomains.sbs" || "http://api.foxylab.nomoredomains.sbs", // https://mesto.nomoreparties.co/v1/cohort-41/
   headers: {
     //authorization: "05f5ca8c-a3fe-4352-832f-702af14f0f21", // Это что такое?
     "Content-Type": "application/json",

@@ -1,4 +1,4 @@
-export const BASE_URL = "https://api.foxylab.nomoredomains.sbs"; // https://auth.nomoreparties.co
+export const BASE_URL = "https://api.foxylab.nomoredomains.sbs" || "http://api.foxylab.nomoredomains.sbs"; // https://auth.nomoreparties.co
 
 const isOk = (response) => {
   return response.ok
