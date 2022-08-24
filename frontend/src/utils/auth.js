@@ -13,6 +13,7 @@ export const register = (password, email) => {
     headers: {
       'Content-Type': 'application/json',
       'Cross-Origin-Resource-Policy': 'cross-origin',
+      'Acces-Control-Allow-Credentials': 'true',
     },
     body: JSON.stringify({password, email})
   }).then(isOk);
@@ -25,6 +26,7 @@ export const authorization = (password, email) => {
     headers: {
       'Content-Type': 'application/json',
       'Cross-Origin-Resource-Policy': 'cross-origin',
+      'Acces-Control-Allow-Credentials': 'true',
     },
     body: JSON.stringify({password, email})
   }).then(isOk);
@@ -37,6 +39,7 @@ export const deauthorization = () => {
     headers: {
       'Content-Type': 'application/json',
       'Cross-Origin-Resource-Policy': 'cross-origin',
+      'Acces-Control-Allow-Credentials': 'true',
     },
   }).then(isOk);
 };
@@ -48,6 +51,7 @@ export const userCheck = (/* token */) => {
     headers: {
       "Content-Type": "application/json",
       'Cross-Origin-Resource-Policy': 'cross-origin',
+      'Acces-Control-Allow-Credentials': 'true',
       /* "Authorization": `Bearer ${token}`, */
     },
   }).then(isOk);

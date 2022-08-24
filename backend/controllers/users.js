@@ -20,6 +20,7 @@ const createUser = (req, res, next) => {
     .then((user) => {
       res.status(CREATED).header({
         'Cross-Origin-Resource-Policy': 'cross-origin',
+        'Acces-Control-Allow-Credentials': 'true',
         // 'Access-Control-Allow-Methods': 'GET, DELETE, HEAD, OPTIONS',
       }).send(user);
     })
@@ -42,6 +43,7 @@ const login = (req, res, next) => {
           // crossOrigin: true,
         }).header({
           'Cross-Origin-Resource-Policy': 'cross-origin',
+          'Acces-Control-Allow-Credentials': 'true',
         }).send({ message: 'allowed' });
     })
     .catch((err) => next(err));
@@ -52,6 +54,7 @@ const findUsers = (req, res, next) => {
     .then((users) => {
       res.header({
         'Cross-Origin-Resource-Policy': 'cross-origin',
+        'Acces-Control-Allow-Credentials': 'true',
       }).send(users);
     })
     .catch((err) => {
@@ -67,6 +70,7 @@ const findUserById = (req, res, next) => {
     .then((user) => {
       res.header({
         'Cross-Origin-Resource-Policy': 'cross-origin',
+        'Acces-Control-Allow-Credentials': 'true',
       }).send(user);
     })
     .catch((err) => {
@@ -82,6 +86,7 @@ const getUserInfo = (req, res, next) => {
     .then((user) => {
       res.header({
         'Cross-Origin-Resource-Policy': 'cross-origin',
+        'Acces-Control-Allow-Credentials': 'true',
       }).send(user);
     })
     .catch((err) => {
@@ -105,6 +110,7 @@ const updateUserInfo = (req, res, next) => {
     .then((user) => {
       res.header({
         'Cross-Origin-Resource-Policy': 'cross-origin',
+        'Acces-Control-Allow-Credentials': 'true',
       }).send(user);
     })
     .catch((err) => {
@@ -127,6 +133,7 @@ const updateUserAvatar = (req, res, next) => {
     .then((user) => {
       res.header({
         'Cross-Origin-Resource-Policy': 'cross-origin',
+        'Acces-Control-Allow-Credentials': 'true',
       }).send(user);
     })
     .catch((err) => {

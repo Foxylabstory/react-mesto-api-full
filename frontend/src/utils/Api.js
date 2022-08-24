@@ -91,6 +91,7 @@ const api = new Api({
     //authorization: "05f5ca8c-a3fe-4352-832f-702af14f0f21", // Это что такое?
     "Content-Type": "application/json",
     'Cross-Origin-Resource-Policy': 'cross-origin',
+    'Acces-Control-Allow-Credentials': 'true',
   },
 });
 

@@ -59,6 +59,7 @@ app.get('/signout', (req, res, next) => {
       })
       .header({
         'Cross-Origin-Resource-Policy': 'cross-origin',
+        'Acces-Control-Allow-Credentials': 'true',
       })
       .send({ message: 'Выход успешный' });
   } catch (err) {
