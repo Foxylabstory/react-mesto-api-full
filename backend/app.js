@@ -19,7 +19,7 @@ const { requestLogger, errorLogger } = require('./middlewares/logger');
 const { PORT = 3000, BASE_PATH } = process.env;
 
 const corsOption = {
-  origin: 'https://foxylab.nomoredomains.sbs',
+  origin: 'https://foxylab.nomoredomains.sbs' || 'http://foxylab.nomoredomains.sbs',
   credentials: true,
   // preflightContinue: true,
 };
@@ -27,7 +27,7 @@ const corsOption = {
 const app = express();
 app.use(cors(corsOption)); // разрешает междоменные запросы
 const limiter = rateLimit({
-  windowMs: 15 * 60 * 1000 * 10000, // за 15 минут
+  windowMs: 15 * 60 * 1000, // за 15 минут
   max: 100, // можно совершить максимум 100 запросов с одного IP
 });
 app.use(limiter);
