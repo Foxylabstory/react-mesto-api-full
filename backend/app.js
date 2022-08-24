@@ -19,7 +19,7 @@ const { requestLogger, errorLogger } = require('./middlewares/logger');
 const { PORT = 3000, BASE_PATH } = process.env;
 
 const corsOption = {
-  origin: 'https://foxylab.nomoredomains.sbs',
+  origin: ['https://foxylab.nomoredomains.sbs', 'http://foxylab.nomoredomains.sbs', 'https://www.foxylab.nomoredomains.sbs', 'http://www.foxylab.nomoredomains.sbs'],
   credentials: true,
   // preflightContinue: true,
 };
