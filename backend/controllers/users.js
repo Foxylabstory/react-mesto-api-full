@@ -38,7 +38,7 @@ const login = (req, res, next) => {
           maxAge: 3600000 * 24 * 7,
           // httpOnly: true, // выключили доступ к куке из ЖС
           sameSite: 'None', // принимает/отправляет куки только с того же домена
-          secure: 'True',
+          secure: 'False',
           // crossOrigin: true,
         }).header({
           'Cross-Origin-Resource-Policy': 'cross-origin',
