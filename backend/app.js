@@ -55,7 +55,7 @@ app.get('/signout', (req, res, next) => {
       .clearCookie('jwt', {
         // httpOnly: true, // выключили доступ к куке из ЖС
         sameSite: 'None', // принимает/отправляет куки только с того же домена
-        secure: 'False',
+        secure: 'True',
       })
       .header({
         'Cross-Origin-Resource-Policy': 'cross-origin',
