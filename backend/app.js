@@ -19,7 +19,7 @@ const { requestLogger, errorLogger } = require('./middlewares/logger');
 const { PORT = 3000, BASE_PATH } = process.env;
 
 const corsOption = {
-  origin: ['https://foxylab.nomoredomains.sbs', 'http://foxylab.nomoredomains.sbs', 'https://www.foxylab.nomoredomains.sbs', 'http://www.foxylab.nomoredomains.sbs'],
+  origin: ['https://foxylab.nomoredomains.sbs', 'http://foxylab.nomoredomains.sbs', 'https://www.foxylab.nomoredomains.sbs', 'http://www.foxylab.nomoredomains.sbs', 'http://localhost:3001', 'http://localhost:3000'],
   credentials: true,
   // preflightContinue: true,
 };
@@ -30,12 +30,12 @@ const limiter = rateLimit({
   windowMs: 15 * 60 * 1000, // за 15 минут
   max: 100, // можно совершить максимум 100 запросов с одного IP
 });
+app.use(requestLogger); // подключаем логгер запросов
 app.use(limiter);
 app.use(helmet());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
-app.use(requestLogger); // подключаем логгер запросов
 
 // слеедующий роут уронит сервер
 app.get('/crash-test', () => {
@@ -49,6 +49,8 @@ app.use('/signin', signin);
 
 app.use(auth);
 
+app.use('/users', users);
+app.use('/cards', cards);
 app.get('/signout', (req, res, next) => {
   try {
     res
@@ -65,12 +67,7 @@ app.get('/signout', (req, res, next) => {
   } catch (err) {
     next(err);
   }
-  return next();
 });
-
-app.use('/users', users);
-app.use('/cards', cards);
-
 app.use('/*', () => {
   throw new NotFoundError('Страница не найдена');
 });

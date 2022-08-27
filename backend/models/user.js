@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 const isEmail = require('validator/lib/isEmail');
 const bcrypt = require('bcryptjs');
+const validator = require('validator');
 const AuthorizationError = require('../errors/authorizationError');
 
 const userSchema = new mongoose.Schema({
@@ -22,11 +23,19 @@ const userSchema = new mongoose.Schema({
     type: String,
     // required: false,
     default: 'https://pictures.s3.yandex.net/resources/jacques-cousteau_1604399756.png',
+    validate: {
+      validator: (link) => {
+        validator.isURL(link, {
+          protocols: ['http', 'https'],
+          require_protocol: true,
+        });
+      },
+    },
   },
   email: {
     type: String,
     required: [true, 'email is required'],
-    unique: true, // [true, 'email is not unique'], должно ли так рабботать?
+    unique: [true, 'email is not unique'],
     validate: {
       validator: (v) => isEmail(v),
       message: 'Неправильный формат почты',
@@ -46,12 +55,12 @@ userSchema.statics.findUserByCredentials = function (email, password) {
   return this.findOne({ email }).select('+password')
     .then((user) => {
       if (!user) {
-        throw new AuthorizationError('Пользователь не найден');
+        throw new AuthorizationError('при авторизации возникла проблема');
       }
       return bcrypt.compare(password, user.password)
         .then((matched) => {
           if (!matched) {
-            throw new AuthorizationError('Пользователь не найден');
+            throw new AuthorizationError('При авторизации возникла проблема'); // в лекциях был акцент на указание одинаковой ошибки, что бы злоумышленник не мог определить, что у него правильное или неправильное, обезличил сообщения об ошибке
           }
           return user;
         });

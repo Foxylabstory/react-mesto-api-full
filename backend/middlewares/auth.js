@@ -1,6 +1,6 @@
 const jwt = require('jsonwebtoken');
 
-const { SECRET_KEY = 'dev-key' } = process.env;
+const { SECRET_KEY } = process.env;
 const AuthorizationError = require('../errors/authorizationError');
 // защищает роуты авторизацией, если  нет токена, то кидает ошибку
 
@@ -9,9 +9,8 @@ module.exports = (req, res, next) => {
   let payload;
   try {
     payload = jwt.verify(token, SECRET_KEY);
-  } catch (e) {
-    const err = new AuthorizationError('Необходима авторизация!');
-    next(err);
+  } catch (err) {
+    throw new AuthorizationError('Необходима авторизация');
   }
   req.user = payload; // записываем пейлоуд в объект запроса
   return next();
