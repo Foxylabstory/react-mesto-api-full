@@ -55,12 +55,12 @@ userSchema.statics.findUserByCredentials = function (email, password) {
   return this.findOne({ email }).select('+password')
     .then((user) => {
       if (!user) {
-        throw new AuthorizationError('при авторизации возникла проблема');
+        throw new AuthorizationError('Неправильные почта или пароль');
       }
       return bcrypt.compare(password, user.password)
         .then((matched) => {
           if (!matched) {
-            throw new AuthorizationError('При авторизации возникла проблема'); // в лекциях был акцент на указание одинаковой ошибки, что бы злоумышленник не мог определить, что у него правильное или неправильное, обезличил сообщения об ошибке
+            throw new AuthorizationError('Неправильные почта или пароль');
           }
           return user;
         });
